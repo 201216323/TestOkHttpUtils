@@ -1,5 +1,6 @@
 package bruce.chang.testokhttputils;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,11 +17,19 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+/**
+ * Created by: BruceChang
+ * Date on : 2016/12/21.
+ * Time on: 17:07
+ * Progect_Name:TestOkHttpUtils
+ * Source Github：
+ * Description:原生的OkHttp使用
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final int GET = 1;
     private static final int POST = 2;
-    Button btn_get, btn_post;
+    Button btn_get, btn_post, btn_go_hy;
     TextView tv_result;
     OkHttpClient client = new OkHttpClient();
 
@@ -47,9 +56,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_get = (Button) findViewById(R.id.btn_get);
         btn_post = (Button) findViewById(R.id.btn_post);
         tv_result = (TextView) findViewById(R.id.tv_result);
+        btn_go_hy = (Button) findViewById(R.id.btn_go_hy);
         //设置点击事件
         btn_get.setOnClickListener(this);
         btn_post.setOnClickListener(this);
+        btn_go_hy.setOnClickListener(this);
 
     }
 
@@ -63,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_post:
                 tv_result.setText("");
                 getDataFromPost();
+                break;
+            case R.id.btn_go_hy:
+                startActivity(new Intent(MainActivity.this, HYOkhttpActivity.class));
                 break;
             default:
                 break;

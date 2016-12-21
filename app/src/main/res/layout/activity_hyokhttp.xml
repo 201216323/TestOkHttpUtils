@@ -5,56 +5,50 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bruce.chang.testokhttputils.MainActivity">
+    tools:context="bruce.chang.testokhttputils.HYOkhttpActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <ProgressBar
 
+            android:id="@+id/mProgressBar"
+            style="?android:progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"/>
         <Button
             android:id="@+id/btn_get"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:text="get请求"
+            android:text="get请求with__okhttputils"
             android:textAllCaps="false"
+            android:layout_marginBottom="5dp"
             />
 
         <Button
             android:id="@+id/btn_post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:text="post请求"
             android:textAllCaps="false"
+            android:text="post请求with__okhttputils"
+            android:layout_marginBottom="5dp"
             />
-
-        <LinearLayout
+        <Button
+            android:id="@+id/btn_download_big_file"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-            <Button
-                android:id="@+id/btn_go_hy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:text="go to HYOkHttpActivity"
-                android:textAllCaps="false"
-                />
-
-        </LinearLayout>
-
+            android:textAllCaps="false"
+            android:text="使用okhttputils下载大文件"
+            android:layout_marginBottom="5dp"
+            />
         <TextView
             android:id="@+id/tv_result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="显示请求数据"
             android:textAllCaps="false"/>
-
-
     </LinearLayout>
 
 </ScrollView>

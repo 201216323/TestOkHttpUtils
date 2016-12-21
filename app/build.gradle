@@ -26,6 +26,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.0.1'
     testCompile 'junit:junit:4.12'
-    compile files('libs/okhttp-3.5.0.jar')
-    compile files('libs/okio-1.11.0.jar')
+//    compile files('libs/okhttp-3.5.0.jar')
+//    compile files('libs/okio-1.11.0.jar')
+    compile project(':okhttputils')
 }
