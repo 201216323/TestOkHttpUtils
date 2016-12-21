@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity
     public void getHtml(View view)
     {
         String url = "http://www.zhiyun-tech.com/App/Rider-M/changelog-zh.txt";
-        url="http://www.391k.com/api/xapi.ashx/info.json?key=bd_hyrzjjfb4modhj&size=10&page=1";
+        url="http://api.m.mtime.cn/PageSubArea/TrailerList.api";
         OkHttpUtils
                 .get()
                 .url(url)

@@ -18,69 +18,85 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="getHtml"
-            android:text="Get Html"/>
+            android:text="Get Html"
+            android:textAllCaps="false"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="postFile"
-            android:text="Post File"/>
+            android:text="Post File"
+            android:textAllCaps="false"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="postString"
-            android:text="Post String"/>
+            android:text="Post String"
+            android:textAllCaps="false"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="getHttpsHtml"
-            android:text="Get Https Html"/>
+            android:text="Get Https Html"
+            android:textAllCaps="false"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="getUser"
-            android:text="Get User"/>
+            android:text="Get User"
+            android:textAllCaps="false"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="getUsers"
-            android:text="Get Users"/>
+            android:text="Get Users"
+            android:textAllCaps="false"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="getImage"
-            android:text="Get Image"/>
+            android:text="Get Image"
+            android:textAllCaps="false"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="uploadFile"
-            android:text="Upload File"/>
+            android:text="Upload File"
+            android:textAllCaps="false"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="multiFileUpload"
-            android:text="Multi Upload Files"/>
+            android:text="Multi Upload Files"
+            android:textAllCaps="false"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="downloadFile"
-            android:text="Download File"/>
+            android:text="Download File"
+            android:textAllCaps="false"/>
 
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:onClick="otherRequestDemo"
-                android:text="otherRequestDemo"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="otherRequestDemo"
+            android:text="otherRequestDemo"
+            android:textAllCaps="false"/>
 
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:onClick="clearSession"
-                android:text="clearSession"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clearSession"
+            android:text="clearSession"
+            android:textAllCaps="false"/>
 
     </com.zhy.sample_okhttp.FlowLayout>
 
