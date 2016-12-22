@@ -61,6 +61,7 @@ public class MyApplication extends Application
                         return true;
                     }
                 })
+                //设置可访问所有的https网站
                 .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
                 .build();
         OkHttpUtils.initClient(okHttpClient);
