@@ -208,7 +208,7 @@ public class HYOkhttpActivity extends AppCompatActivity implements View.OnClickL
      * @param view
      */
     public void multiFileUpload(View view) {
-        String mBaseUrl = "http://192.168.31.11:8080/FileUpload/FileUploadServlet";
+        String mBaseUrl = "http://192.168.1.6:8080/FileUpload/FileUploadServlet";
         File file = new File(Environment.getExternalStorageDirectory(), "code.jpg");
         File file2 = new File(Environment.getExternalStorageDirectory(), "123.txt");
         if (!file.exists() || !file2.exists()) {
@@ -222,7 +222,7 @@ public class HYOkhttpActivity extends AppCompatActivity implements View.OnClickL
         String url = mBaseUrl;
         OkHttpUtils.post()//
                 .addFile("mFile", "server_code.jpg", file)//
-//                .addFile("mFile", "123.txt", file2)//
+                .addFile("mFile", "123.txt", file2)//
                 .url(url)
                 .params(params)//
                 .build()//
