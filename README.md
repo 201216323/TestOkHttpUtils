@@ -88,6 +88,8 @@ OkHttpClient client = new OkHttpClient();
 
 
 > get请求核心方法
+
+
 ```
 /**
      * get请求，要在子线程运行
@@ -106,6 +108,7 @@ OkHttpClient client = new OkHttpClient();
     }
 ```
 > 点击get请求按钮调用下面方法来得到请求成功返回的json数据，因为网络的访问是一个耗时的操作，这个需要单独开一个线程，最后通过Handle机制来加载请求成功的结果。
+
 
 ```
 private void getDataFromGet() {
@@ -129,6 +132,7 @@ private void getDataFromGet() {
 ```
 > Handler得到数据加载显示
 
+
 ```
 Handler mHandler = new Handler() {
         @Override
@@ -146,7 +150,7 @@ Handler mHandler = new Handler() {
 
 ![get请求结果](http://ww1.sinaimg.cn/mw690/b0d9a523jw1fayhjcu0ddg20bx0mlqv5.gif)
 
-2.3Post请求
+## 2.3Post请求
 
 从2.1.3中我们可以看到post请求的方法，拷贝上面的代码到MainActivity.java中，去掉再get请求中已经添加的OkHttpClient client = new OkHttpClient()，然后像get方法一样，在新的线程中进行请求调用，结果同样通过Handle消息机制发出并在textview上加载服务器返回的json数据。
 
@@ -214,11 +218,15 @@ okhttputils是鸿洋大神基于OkHttp3.3.1的一个封装，最新的版本是3
 可以参考他这篇文章的博客：http://blog.csdn.net/lmj623565791/article/details/47911083
 
 ## 3.2下载导入自己的工程
+
 okhttputils的Github地址：https://github.com/hongyangAndroid/okhttputils
 
 将下载好的文件解压后，以库工程的形式导入到 项目中，但会有一些错误。
+
 ## 3.3解决报错
+
 ### 3.3.1在自己项目的gradle文件中增加如下代码
+
 ```
 allprojects {
     repositories {
@@ -228,6 +236,7 @@ allprojects {
 }
 ```
 ### 3.3.2把okhttp-utils集成到案例中
+
 > 关联库
 
 
@@ -399,7 +408,9 @@ E/HYOkhttpActivity: onResponse :/storage/emulated/0/okhttp-utils-test.mp4
 
 
 ## 3.6使用okhttp-utils上传文件
-> 上传文件的时候调用下面的方法，其中mBaseUrl是自己搭建的本地服务器的地址，
+
+> 上传文件的时候调用下面的方法，其中mBaseUrl是自己搭建的本地服务器的地址，这里上传手机存储根目录下的一个code.jpg图片和123.txt图片。
+
 ```
 /**
      * 使用okhttputils 上传多个或者单个文件
@@ -407,7 +418,7 @@ E/HYOkhttpActivity: onResponse :/storage/emulated/0/okhttp-utils-test.mp4
      * @param view
      */
     public void multiFileUpload(View view) {
-        String mBaseUrl = "http://192.168.31.11:8080/FileUpload/FileUploadServlet";
+        String mBaseUrl = "http://192.168.7.167:8082/FileUpload/FileUploadServlet";
         File file = new File(Environment.getExternalStorageDirectory(), "code.jpg");
         File file2 = new File(Environment.getExternalStorageDirectory(), "123.txt");
         if (!file.exists() || !file2.exists()) {
@@ -428,10 +439,12 @@ E/HYOkhttpActivity: onResponse :/storage/emulated/0/okhttp-utils-test.mp4
                 .execute(new MyStringCallback());
     }
 ```
-> 结果：
-![image](http://note.youdao.com/favicon.ico)
+> 上传结果，从服务器端可以查看，已经将两个文件上传成功了。
+
+![上传文件结果](http://ww3.sinaimg.cn/mw690/b0d9a523jw1fazcx0axcvj20bi07aq3y.jpg)
 
 ## 3.7使用okhttp-utils请求单张图片
+
 > 调用方法，将请求的图片加载到iv_http这个ImageView上，从运行的结果来看，在请求单张图片的时候还是不错的，但在加载列表图片的时候就有问题了。
 
 ```
@@ -470,6 +483,7 @@ E/HYOkhttpActivity: onResponse :/storage/emulated/0/okhttp-utils-test.mp4
 ![使用okhttputils 请求单张图片](http://ww2.sinaimg.cn/mw690/b0d9a523jw1fays32vn29g209n0hi444.gif)
 
 ## 3.7使用okhttp-utils请求列表图片
+
 > 既然要在列表中加载图片，就新建一个Activity，使用3.4中的post请求得到返回的数据，利用SharedPreferences存储起来，断网的时候从本地读取数据，调用loadData方法，加载数据。
 
 ```
@@ -481,6 +495,7 @@ E/HYOkhttpActivity: onResponse :/storage/emulated/0/okhttp-utils-test.mp4
     }
 ```
 > loadData加载数据，此方法中需要调用parseData方法来解析数据，这样做到不同功能的方法相互分离，方便调用，HYOkHttpListAdapter也是非常简单的，里面就调用3.6中的方法加载单张图片，最下面有源代码，不懂的可以查看。
+
 ```
 /**
      * 加载数据
@@ -503,6 +518,7 @@ E/HYOkhttpActivity: onResponse :/storage/emulated/0/okhttp-utils-test.mp4
     }
 ```
 > 当手机没有网络的时候，从本地读取存储的数据，这就需要稍微修改一下3.4中的post请求方法，但或许是OkHttp本身的原因还是okhttputils的原因，没网的时候图片是不能加载出来的。
+
 ```
 /**
      * 使用okhttputils的post请求
@@ -528,3 +544,15 @@ E/HYOkhttpActivity: onResponse :/storage/emulated/0/okhttp-utils-test.mp4
 > 断开网络结果,图片没有加载出来
 
 ![image](http://ww4.sinaimg.cn/mw690/b0d9a523jw1faz8aggl3gg209n0hi7wh.gif)
+
+
+
+
+
+源码地址：https://github.com/201216323/TestOkHttpUtils
+
+欢迎访问201216323.tech来查看我的CSDN博客。
+
+欢迎关注我的个人技术公众号,快速查看我的最新文章。
+
+![我的公众号图片](http://img.blog.csdn.net/20161220174646569?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2NnXzIwMTIxNjMyMw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast "bruce常")
